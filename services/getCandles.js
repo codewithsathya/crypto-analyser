@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const minute = 60000;
+const minute = 15 * 60000;
 const limit = 1000;
 let baseUrl = "https://api.binance.com";
 let apiUrl = baseUrl + "/api/v3";
@@ -16,8 +16,7 @@ async function getCandles(symbol, timeFrame, startTime, endTime) {
   return candles;
 }
 
-async function getLastCandles(symbol, timeFrame, noOfCandles) {
-  let presentTime = new Date().getTime();
+async function getLastCandles(symbol, timeFrame, noOfCandles, presentTime) {
   let endTime = Math.floor(presentTime / minute) * minute;
   let startTime = endTime - (noOfCandles - 1) * minute;
   if (noOfCandles <= limit) {
@@ -49,6 +48,8 @@ async function getLastCandles(symbol, timeFrame, noOfCandles) {
     return candles;
   }
 }
+
+
 
 module.exports = {
 	getLastCandles
