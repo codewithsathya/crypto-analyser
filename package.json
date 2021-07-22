@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "heikinashi": "^1.0.6",
     "node-binance-api": "^0.12.5"
   }
 }
